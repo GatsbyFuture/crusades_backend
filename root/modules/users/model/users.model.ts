@@ -1,5 +1,7 @@
 import { Schema } from 'mongoose';
 import { v4 as uuid } from 'uuid';
+import { UserLang } from '@app/modules/users/enum/users.lang.enum';
+import { UserRoles } from '@app/modules/users/enum/users.role.enum';
 
 export const userSchema = new Schema(
   {
@@ -11,10 +13,6 @@ export const userSchema = new Schema(
       type: String,
       default: '',
     },
-    lang: {
-      type: String,
-      default: '',
-    },
     phone_number: {
       type: String,
       match: [
@@ -23,6 +21,14 @@ export const userSchema = new Schema(
       ],
       trim: true,
       sparse: true,
+    },
+    lang: {
+      type: String,
+      default: UserLang.OZ,
+    },
+    role: {
+      type: String,
+      default: UserRoles.USER,
     },
     notifications: {
       type: Boolean,
