@@ -10,5 +10,5 @@ export interface IUser extends Document {
   role: UserRoles;
   notifications: boolean;
   dark_mode: boolean;
-  facts: [string];
+  facts: string[];
 }
