@@ -5,6 +5,6 @@ export class NotificationsService {
   constructor() {}
 
   readAllComments(): string {
-    return 'comments';
+    return 'notifications';
   }
 }
