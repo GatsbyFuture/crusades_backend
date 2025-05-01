@@ -8,6 +8,7 @@ import { configs } from './configs/configs';
 import { UsersModule } from '@app/modules/users/users.module';
 import { FactsModule } from '@app/modules/facts/facts.module';
 import { CommentsModule } from '@app/modules/comts/comts.module';
+import { NotificationsModule } from '@app/modules/notfs/notfs.module';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { CommentsModule } from '@app/modules/comts/comts.module';
     UsersModule,
     FactsModule,
     CommentsModule,
+    NotificationsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
