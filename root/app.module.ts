@@ -5,7 +5,8 @@ import { AppService } from './app.service';
 // configs
 import { configs } from './configs/configs';
 // all module
-import { UsersModule } from './modules/users/users.module';
+import { UsersModule } from '@app/modules/users/users.module';
+import { FactsModule } from '@app/modules/facts/facts.module';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { UsersModule } from './modules/users/users.module';
       authSource: 'admin',
     }),
     UsersModule,
+    FactsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

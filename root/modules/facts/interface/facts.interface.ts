@@ -12,6 +12,6 @@ export interface IFact extends Document {
   created_by: string;
   status: FactStatus;
   likes: number;
-  comments: string;
+  comments: number;
   isApproved: boolean;
 }
