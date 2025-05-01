@@ -7,6 +7,7 @@ import { configs } from './configs/configs';
 // all module
 import { UsersModule } from '@app/modules/users/users.module';
 import { FactsModule } from '@app/modules/facts/facts.module';
+import { CommentsModule } from '@app/modules/comts/comts.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { FactsModule } from '@app/modules/facts/facts.module';
     }),
     UsersModule,
     FactsModule,
+    CommentsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
