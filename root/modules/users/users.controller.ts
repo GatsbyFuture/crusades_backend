@@ -1,4 +1,4 @@
-import { Controller, Post, Get, Body, Param } from '@nestjs/common';
+import { Controller, Post, Get, Body, Param, Query } from '@nestjs/common';
 import { UsersService } from './users.service';
 
 // dto
@@ -32,9 +32,20 @@ export class UsersController {
     };
   }
 
-  @Get('/get-one/:id')
-  async getOneUser(@Param('id') id: string): Promise<any> {
-    const user = await this.usersService.readUserById(id);
+  @Get('/get-one')
+  async getOneUser(@Query() query: any): Promise<any> {
+    const { id, mobile_id } = query;
+    let filter: any = {};
+
+    if (id) {
+      filter._id = id;
+    }
+
+    if (mobile_id) {
+      filter.mobile_id = mobile_id;
+    }
+
+    const user = await this.usersService.readUser(filter);
     return {
       success: true,
       data: user,
