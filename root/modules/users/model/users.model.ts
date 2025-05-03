@@ -13,6 +13,10 @@ export const userSchema = new Schema(
       type: String,
       default: '',
     },
+    lang: {
+      type: String,
+      default: UserLang.OZ,
+    },
     phone_number: {
       type: String,
       match: [
@@ -21,10 +25,6 @@ export const userSchema = new Schema(
       ],
       trim: true,
       sparse: true,
-    },
-    lang: {
-      type: String,
-      default: UserLang.OZ,
     },
     role: {
       type: String,

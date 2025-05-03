@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Post, Get } from '@nestjs/common';
 import { UsersService } from './users.service';
 
 @Controller('users')
@@ -8,5 +8,10 @@ export class UsersController {
   @Get()
   getAllUsers(): string {
     return this.usersService.readUsers();
+  }
+
+  @Post()
+  async updateUser(): Promise<any> {
+    return 'success';
   }
 }
