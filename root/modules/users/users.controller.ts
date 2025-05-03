@@ -34,6 +34,10 @@ export class UsersController {
 
   @Get('/get-one/:id')
   async getOneUser(@Param('id') id: string): Promise<any> {
-    
+    const user = await this.usersService.readUserById(id);
+    return {
+      success: true,
+      data: user,
+    };
   }
 }

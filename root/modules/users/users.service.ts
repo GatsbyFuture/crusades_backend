@@ -7,6 +7,10 @@ import { IUser } from './interface/users.interface';
 export class UsersService {
   constructor(@InjectModel('users') private readonly userModel: Model<IUser>) {}
 
+  async readUserById(id: string): Promise<IUser | null> {
+    return this.userModel.findOne({ _id: id }).exec();
+  }
+
   async readUsers(query: any): Promise<IUser[]> {
     return this.userModel.find(query).exec();
   }
