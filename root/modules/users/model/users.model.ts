@@ -26,6 +26,7 @@ export const userSchema = new Schema(
       trim: true,
       sparse: true,
     },
+    mobile_id: String,
     role: {
       type: String,
       default: UserRoles.USER,

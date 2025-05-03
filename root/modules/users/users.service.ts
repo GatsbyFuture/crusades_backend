@@ -11,7 +11,9 @@ export class UsersService {
     return 'users';
   }
 
-  updateUser(user: IUser): any {
-
+  async updateUser(query: any, user: any): Promise<IUser> {
+    return this.userModel
+      .findOneAndUpdate(query, { $set: user }, { new: true, upsert: true })
+      .exec();
   }
 }

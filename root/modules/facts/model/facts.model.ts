@@ -13,6 +13,10 @@ export const FactSchema = new Schema(
       required: [true, 'Sarlavha kiritish majburiy'],
       trim: true,
     },
+    summary: {
+      type: String,
+      required: [true, "Qisqacha ma'lumot majburiy"],
+    },
     content: {
       type: String,
       required: [true, 'Tavsif kiritish majburiy'],
@@ -20,17 +24,17 @@ export const FactSchema = new Schema(
     },
     category: {
       type: String,
-      required: [true, 'Kategoriya kiritish majburiy'],
+      required: [true, 'Kategoriya kiritish majburiy'], // masalan:['shaxslar','birinchi salib yurishlari']
       trim: true,
     },
+    images_url: String,
     tags: [
       {
         type: String,
         trim: true,
       },
     ],
-    images_url: String,
-    videos_url: String,
+    videos_url: [String],
     created_by: String,
     status: {
       type: String,

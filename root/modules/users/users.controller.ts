@@ -1,5 +1,8 @@
-import { Controller, Post, Get } from '@nestjs/common';
+import { Controller, Post, Get, Body } from '@nestjs/common';
 import { UsersService } from './users.service';
+
+// dto
+import { UpdateUserDto } from '@app/modules/users/dto/users.update.dto';
 
 @Controller('users')
 export class UsersController {
@@ -10,8 +13,21 @@ export class UsersController {
     return this.usersService.readUsers();
   }
 
-  @Post()
-  async updateUser(): Promise<any> {
-    return 'success';
+  @Post('/create')
+  async updateUser(
+    @Body()
+    updateUserDto: UpdateUserDto,
+  ): Promise<any> {
+    const { mobile_id, ...user } = updateUserDto;
+    const created = await this.usersService.updateUser(
+      {
+        mobile_id: mobile_id,
+      },
+      user,
+    );
+    return {
+      status: 201,
+      data: created,
+    };
   }
 }
